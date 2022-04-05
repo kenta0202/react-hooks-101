@@ -5,26 +5,27 @@ type defaultPropsType = {
   price: number;
 };
 
-const App: React.VFC<defaultPropsType> = ({ name, price }) => {
-  const [_name, setName] = useState(name);
-  const [_price, setPrice] = useState(price);
-  const reset = () => {
-    setPrice(price);
-    setName(name);
-  };
+const App: React.VFC<defaultPropsType> = (props) => {
+  const [state, setState] = useState(props);
+  const { name, price } = state;
+
   return (
     <>
       <p>
-        現在の{_name}は、{_price}です
+        現在の{name}は、{price}です
       </p>
-      <button onClick={() => setPrice(_price + 1)}>+1</button>
-      <button onClick={() => setPrice(_price - 1)}>-1</button>
-      <button onClick={reset}>Reset</button>
+      <button onClick={() => setState({ ...state, price: price + 1 })}>
+        +1
+      </button>
+      <button onClick={() => setState({ ...state, price: price - 1 })}>
+        -1
+      </button>
+      <button onClick={() => setState(props)}>Reset</button>
       <input
         type="text"
-        value={_name}
+        value={name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          setName(e.target.value);
+          setState({ ...state, name: e.target.value });
         }}
       />
     </>

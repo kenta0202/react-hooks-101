@@ -5,4 +5,9 @@ const container = document.getElementById("root") as HTMLElement;
 // Create a root.
 const root = ReactDOMClient.createRoot(container);
 
-root.render(<App />);
+const defaultProps = {
+  name: "",
+  price: 1000,
+};
+
+root.render(<App name={defaultProps.name} price={defaultProps.price} />);

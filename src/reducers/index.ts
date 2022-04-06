@@ -31,19 +31,19 @@ body:"2020東京でオリンピックを開催します。つきましては、�
 }]
 
 */
-
+import { uid } from "uid";
 import { eventType, ACTIONTYPE } from "../interface/event";
 
 const reducer = (state = [] as eventType[], action: ACTIONTYPE) => {
   switch (action.type) {
     case "CREATE_EVENT":
-      const event = { title: action.title, body: action.body };
+      const event = { title: action.title!, body: action.body! };
       const length = state.length;
       const id = length === 0 ? 1 : state[length - 1]!.id + 1;
-      return [...state, { id, ...event }];
+      return [...state, { id, uid: uid(8), ...event }];
     case "DELETE_EVENT":
-      return;
-    case "CREATE_ALL_EVENTS":
+      return state.filter((event) => event.uid !== action.uid);
+    case "DELETE_ALL_EVENTS":
       return [];
     default:
       return state;

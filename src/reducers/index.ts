@@ -31,19 +31,10 @@ body:"2020東京でオリンピックを開催します。つきましては、�
 }]
 
 */
-type eventType = {
-  id: number;
-  title: string;
-  body: string;
-};
 
-type ACTIONTYPE = {
-  type: "CREATE_EVENT" | "DELETE_EVENT" | "CREATE_ALL_EVENTS";
-  title: string;
-  body: string;
-};
+import { eventType, ACTIONTYPE } from "../interface/event";
 
-const events = (state: Partial<eventType[]> = [], action: ACTIONTYPE) => {
+const reducer = (state = [] as eventType[], action: ACTIONTYPE) => {
   switch (action.type) {
     case "CREATE_EVENT":
       const event = { title: action.title, body: action.body };
@@ -59,4 +50,4 @@ const events = (state: Partial<eventType[]> = [], action: ACTIONTYPE) => {
   }
 };
 
-export default events;
+export default reducer;

@@ -9,7 +9,6 @@ export type ACTIONTYPE = {
   type: "CREATE_EVENT" | "DELETE_EVENT" | "DELETE_ALL_EVENTS";
   title?: string;
   body?: string;
-  id?: number;
   uid?: string;
 };
 

@@ -10,7 +10,10 @@ type EventComProps = {
 const Event: React.VFC<EventComProps> = ({ event, dispatch }) => {
   const id = event.id;
   const handleOnClickDeleteButton = () => {
-    dispatch({ type: "DELETE_EVENT", uid: event.uid });
+    const result = window.confirm(
+      `イベント(ID=${id})を本当に削除しても良いですか？`
+    );
+    result && dispatch({ type: "DELETE_EVENT", uid: event.uid });
   };
   return (
     <tr>

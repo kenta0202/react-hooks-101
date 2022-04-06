@@ -15,6 +15,16 @@ const App = () => {
     setBody("");
   };
 
+  const deleteAllEvents = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const result = window.confirm(
+      "すべてのイベントを本当に削除しても良いですか？"
+    );
+    result && dispatch({ type: "DELETE_ALL_EVENTS" });
+  };
+
+  const unCreatable = title === "" || body === "";
+
   useEffect(() => {
     console.log(state);
   }, [state]);
@@ -50,10 +60,18 @@ const App = () => {
             }}
           />
         </div>
-        <button className="btn btn-primary" onClick={addEvent}>
+        <button
+          className="btn btn-primary"
+          disabled={unCreatable}
+          onClick={addEvent}
+        >
           イベントを作成する
         </button>
-        <button className="btn btn-danger" onClick={addEvent}>
+        <button
+          className="btn btn-danger"
+          onClick={deleteAllEvents}
+          disabled={state.length === 0}
+        >
           すべてのイベントを削除する
         </button>
       </form>

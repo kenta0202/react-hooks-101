@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { uid as UID } from "uid";
-import { TACTION, TEventItemsState } from "../interface/event";
+import EventPageContext from "../pages/Event/hooks/contexts/EventPageContext";
 
 // 局所的ドメインコンポーネント
 /*
@@ -8,10 +8,9 @@ pagesに依存する
 ローカルの状態を持つ
 */
 
-const EventForm: React.VFC<{
-  state: TEventItemsState;
-  dispatch: React.Dispatch<TACTION>;
-}> = ({ state, dispatch }) => {
+const EventForm: React.VFC = () => {
+  const { state, dispatch } = useContext(EventPageContext);
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const addEvent = (e: React.MouseEvent<HTMLButtonElement>) => {

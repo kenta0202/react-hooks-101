@@ -5,7 +5,7 @@ export type TEventItem = {
   body: string;
 };
 
-export type TEventItemsState = TEventItem[];
+export type TEventItemState = TEventItem[];
 
 export type TACTION =
   | { type: "DELETE_EVENT"; uid?: string }

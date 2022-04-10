@@ -1,10 +1,6 @@
-import React from "react";
-import { TACTION, TEventItem } from "../interface/event";
-
-type EventComProps = {
-  event: TEventItem;
-  dispatch: (value: TACTION) => void;
-};
+import React, { useContext } from "react";
+import { TEventItem } from "../interface/event";
+import EventPageContext from "../pages/Event/hooks/contexts/EventPageContext";
 
 // 局所的ドメインコンポーネント
 /*
@@ -12,8 +8,11 @@ pagesに依存する
 ローカルの状態を持つ
 */
 
-const Event: React.VFC<EventComProps> = ({ event, dispatch }) => {
+const Event: React.VFC<{
+  event: TEventItem;
+}> = ({ event }) => {
   const id = event.id;
+  const { dispatch } = useContext(EventPageContext);
   const handleOnClickDeleteButton = () => {
     const result = window.confirm(
       `イベント(ID=${id})を本当に削除しても良いですか？`

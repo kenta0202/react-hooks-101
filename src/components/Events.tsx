@@ -1,5 +1,5 @@
-import React from "react";
-import { TACTION, TEventItemsState } from "../interface/event";
+import React, { useContext } from "react";
+import EventPageContext from "../pages/Event/hooks/contexts/EventPageContext";
 import Event from "./Event";
 
 // 局所的ドメインコンポーネント
@@ -8,10 +8,9 @@ pagesに依存する
 ローカルの状態を持つ
 */
 
-const Events: React.VFC<{
-  state: TEventItemsState;
-  dispatch: React.Dispatch<TACTION>;
-}> = ({ state, dispatch }) => {
+const Events: React.VFC = () => {
+  const { state } = useContext(EventPageContext);
+
   return (
     <>
       <h4>イベント一覧</h4>
@@ -26,7 +25,7 @@ const Events: React.VFC<{
         </thead>
         <tbody>
           {state.map((event) => (
-            <Event event={event} dispatch={dispatch} key={event.uid} />
+            <Event event={event} key={event.uid} />
           ))}
         </tbody>
       </table>

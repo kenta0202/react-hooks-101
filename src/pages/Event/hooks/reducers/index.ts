@@ -32,9 +32,10 @@ body:"2020東京でオリンピックを開催します。つきましては、�
 
 */
 import { uid } from "uid";
-import { TEventItem, TACTION } from "../interface/event";
+import { TEventItem, TACTION } from "../../../../interface/event";
+import { initalEventState } from "../contexts/EventPageContext";
 
-const reducer = (state = [] as TEventItem[], action: TACTION) => {
+const reducer = (state = initalEventState as TEventItem[], action: TACTION) => {
   switch (action.type) {
     case "CREATE_EVENT":
       const event = { title: action.title!, body: action.body! };

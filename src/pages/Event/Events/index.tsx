@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import EventPageContext from "../pages/Event/hooks/contexts/EventPageContext";
-import Event from "./Event";
+import EventPageContext from "../hooks/contexts/EventPageContext";
+import Event from "./Event/Event";
 
 // 局所的ドメインコンポーネント
 /*

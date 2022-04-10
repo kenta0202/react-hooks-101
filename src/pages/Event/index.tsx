@@ -1,5 +1,5 @@
-import EventForm from "../../components/EventForm";
-import Events from "../../components/Events";
+import EventForm from "./EventForm";
+import Events from "./Events";
 import { useEventPageContextValue } from "./hooks";
 import EventPageContext from "./hooks/contexts/EventPageContext";
 

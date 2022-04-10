@@ -32,9 +32,9 @@ body:"2020東京でオリンピックを開催します。つきましては、�
 
 */
 import { uid } from "uid";
-import { eventType, ACTIONTYPE } from "../interface/event";
+import { TEventItem, TACTION } from "../interface/event";
 
-const reducer = (state = [] as eventType[], action: ACTIONTYPE) => {
+const reducer = (state = [] as TEventItem[], action: TACTION) => {
   switch (action.type) {
     case "CREATE_EVENT":
       const event = { title: action.title!, body: action.body! };
@@ -46,7 +46,8 @@ const reducer = (state = [] as eventType[], action: ACTIONTYPE) => {
     case "DELETE_ALL_EVENTS":
       return [];
     default:
-      return state;
+      const typecheck: never = action;
+      return typecheck;
   }
 };
 

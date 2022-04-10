@@ -1,11 +1,16 @@
 import React from "react";
-import { ACTIONTYPE, eventType } from "../interface/event";
+import { TACTION, TEventItem } from "../interface/event";
 
 type EventComProps = {
-  event: eventType;
-  dispatch: (value: ACTIONTYPE) => void;
-  key: string;
+  event: TEventItem;
+  dispatch: (value: TACTION) => void;
 };
+
+// 局所的ドメインコンポーネント
+/*
+pagesに依存する
+ローカルの状態を持つ
+*/
 
 const Event: React.VFC<EventComProps> = ({ event, dispatch }) => {
   const id = event.id;

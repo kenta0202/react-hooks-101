@@ -1,10 +1,17 @@
-import { useEffect, useReducer, useState } from "react";
-import reducer from "../reducers";
-import Event from "./Event";
+import React, { useState } from "react";
 import { uid as UID } from "uid";
+import { TACTION, TEventItemsState } from "../interface/event";
 
-const App = () => {
-  const [state, dispatch] = useReducer(reducer, []);
+// 局所的ドメインコンポーネント
+/*
+pagesに依存する
+ローカルの状態を持つ
+*/
+
+const EventForm: React.VFC<{
+  state: TEventItemsState;
+  dispatch: React.Dispatch<TACTION>;
+}> = ({ state, dispatch }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const addEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -25,12 +32,8 @@ const App = () => {
 
   const unCreatable = title === "" || body === "";
 
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
   return (
-    <div className="container-fluid">
+    <>
       <h4>イベント作成フォーム</h4>
       <form action="">
         <div className="form-group">
@@ -75,24 +78,8 @@ const App = () => {
           すべてのイベントを削除する
         </button>
       </form>
-      <h4>イベント一覧</h4>
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>タイトル</th>
-            <th>ボディー</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.map((event) => (
-            <Event event={event} dispatch={dispatch} key={event.uid} />
-          ))}
-        </tbody>
-      </table>
-    </div>
+    </>
   );
 };
 
-export default App;
+export default EventForm;

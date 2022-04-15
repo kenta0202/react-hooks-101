@@ -1,12 +1,9 @@
 import { Dispatch, useReducer } from "react";
-import { TACTION, TEventItemState } from "../../../interface/event";
-import { initalEventState } from "./context/EventPageContext";
-import reducer from "./reducer";
+import { TACTION, TEventState } from "../../../interface/event";
+import eventReducer from "./reducers/events";
 
-export const useEventPageContextValue = (
-  values: TEventItemState = initalEventState
-) => {
-  const [state, dispatch] = useReducer(reducer, values);
+export const useEventPageContextValue = (values: TEventState) => {
+  const [state, dispatch] = useReducer(eventReducer, values);
 
   const customDispatch = (
     action: TACTION | ((dispatch: Dispatch<TACTION>) => Promise<void>)

@@ -1,11 +1,16 @@
+import { TState } from "../../interface";
 import EventForm from "./EventForm";
 import EventList from "./EventList";
 import { useEventPageContextValue } from "./hooks";
-import EventPageContext from "./hooks/context/EventPageContext";
+import EventPageContext from "./hooks/contexts/EventPageContext";
+
+export const initalState: TState = {
+  events: [],
+};
 
 const App = () => {
   // Pagesコンポーネント(状態を受け取る)
-  const contextValues = useEventPageContextValue();
+  const contextValues = useEventPageContextValue(initalState.events);
   // contextValuesはstateとdispatch
   return (
     <EventPageContext.Provider value={contextValues}>

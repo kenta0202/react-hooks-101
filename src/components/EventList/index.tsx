@@ -1,9 +1,7 @@
 import React from "react";
-import { TEventItemState } from "../../interface/event";
+import { TEventState } from "../../interface/event";
 import EventItem from "../../pages/Event/EventItem/Index";
-const EventListComponent: React.VFC<{ state: TEventItemState }> = ({
-  state,
-}) => {
+const EventListComponent: React.VFC<{ state: TEventState }> = ({ state }) => {
   return (
     <>
       <h4>イベント一覧</h4>

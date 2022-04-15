@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import EventPageContext from "../hooks/context/EventPageContext";
+import EventPageContext from "../hooks/contexts/EventPageContext";
 import { uid as UID } from "uid";
 import { create, delete_all } from "../hooks/actions";
 

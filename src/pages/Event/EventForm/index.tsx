@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import EventFormComponent from "../../../components/EventForm";
-import EventPageContext from "../hooks/context/EventPageContext";
+import EventPageContext from "../hooks/contexts/EventPageContext";
 
 import { useEventForm } from "./hooks";
 

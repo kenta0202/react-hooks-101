@@ -40,7 +40,7 @@ import {
 } from "../../../../interface/event";
 
 export const eventReducer = (
-  state = initalState.events as TEventState,
+  state = [] as TEventState,
   action: TEventAction
 ) => {
   switch (action.type) {

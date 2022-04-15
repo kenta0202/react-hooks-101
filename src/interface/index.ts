@@ -1,7 +1,7 @@
 import { TEventState } from "./event";
 import { TOperationLogState } from "./operationLog";
 
-export type TState = {
+export type TRootState = {
   events: TEventState;
   operationLogs: TOperationLogState;
 };

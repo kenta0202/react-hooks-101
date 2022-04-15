@@ -1,10 +1,10 @@
-import { TState } from "../../interface";
+import { TRootState } from "../../interface";
 import EventForm from "./EventForm";
 import EventList from "./EventList";
 import { useEventPageContextValue } from "./hooks";
 import EventPageContext from "./hooks/contexts/EventPageContext";
 
-export const initalState: TState = {
+export const initalState: TRootState = {
   events: [],
   operationLogs: [],
 };

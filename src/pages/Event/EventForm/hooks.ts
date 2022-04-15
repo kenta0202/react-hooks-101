@@ -12,7 +12,7 @@ export const useEventForm = (
 
   const addEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch({ type: "event/create", title, body, uid: UID(8) });
+    dispatch({ type: "event/create", payload: { title, body, uid: UID(8) } });
     setTitle("");
     setBody("");
   };

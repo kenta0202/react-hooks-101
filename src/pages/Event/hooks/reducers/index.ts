@@ -38,12 +38,15 @@ import { initalEventState } from "../contexts/EventPageContext";
 const reducer = (state = initalEventState as TEventItem[], action: TACTION) => {
   switch (action.type) {
     case "event/create":
-      const event = { title: action.title!, body: action.body! };
+      const event = {
+        title: action.payload?.title!,
+        body: action.payload?.body!,
+      };
       const length = state.length;
       const id = length === 0 ? 1 : state[length - 1]!.id + 1;
       return [...state, { id, uid: uid(8), ...event }];
     case "event/delete":
-      return state.filter((event) => event.uid !== action.uid);
+      return state.filter((event) => event.uid !== action.payload?.uid);
     case "event/delete_all":
       return [];
     default:

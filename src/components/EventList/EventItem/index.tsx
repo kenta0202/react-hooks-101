@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../util/Button";
+import Button from "../../common/Button";
 
 const EventItemComponent: React.VFC<{
   title: string;

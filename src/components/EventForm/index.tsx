@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../util/Button";
+import Button from "../common/Button";
 import Input from "./Input";
 import TextArea from "./TextArea";
 

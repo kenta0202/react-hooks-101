@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import EventPageContext from "../hooks/contexts/EventPageContext";
 import { uid as UID } from "uid";
-import { create, delete_all } from "../hooks/actions";
+import { create, delete_all } from "../hooks/actions/eventAction";
 
 export const useEventForm = (
   title: string,

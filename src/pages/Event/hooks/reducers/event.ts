@@ -33,14 +33,18 @@ body:"2020東京でオリンピックを開催します。つきましては、�
 */
 import { uid } from "uid";
 import { initalState } from "../..";
-import { TEventItem, TACTION } from "../../../../interface/event";
+import {
+  TEventAction,
+  EventCategory,
+  TEventState,
+} from "../../../../interface/event";
 
 export const eventReducer = (
-  state = initalState.events as TEventItem[],
-  action: TACTION
+  state = initalState.events as TEventState,
+  action: TEventAction
 ) => {
   switch (action.type) {
-    case "event/create":
+    case EventCategory.create:
       const event = {
         title: action.payload?.title!,
         body: action.payload?.body!,
@@ -48,14 +52,12 @@ export const eventReducer = (
       const length = state.length;
       const id = length === 0 ? 1 : state[length - 1]!.id + 1;
       return [...state, { id, uid: uid(8), ...event }];
-    case "event/delete":
+    case EventCategory.delete:
       return state.filter((event) => event.uid !== action.payload?.uid);
-    case "event/delete_all":
+    case EventCategory.deleteAll:
       return [];
     default:
       const typecheck: never = action;
       return typecheck;
   }
 };
-
-export default eventReducer;

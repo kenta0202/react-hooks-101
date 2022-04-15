@@ -1,13 +1,14 @@
 import { createContext, Dispatch } from "react";
-import { TACTION, TEventState } from "../../../../interface/event";
+import { initalState } from "../..";
+import { TEventAction, TEventState } from "../../../../interface/event";
 
 const EventPageContext = createContext<{
   state: TEventState;
   dispatch: (
-    action: TACTION | ((dispatch: Dispatch<TACTION>) => Promise<void>)
+    action: TEventAction | ((dispatch: Dispatch<TEventAction>) => Promise<void>)
   ) => void;
 }>({
-  state: [],
+  state: initalState.events,
   dispatch: () => {},
 });
 

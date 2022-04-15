@@ -6,6 +6,7 @@ import EventPageContext from "./hooks/contexts/EventPageContext";
 
 export const initalState: TState = {
   events: [],
+  operationLogs: [],
 };
 
 const App = () => {

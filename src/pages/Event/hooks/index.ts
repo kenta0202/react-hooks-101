@@ -1,7 +1,7 @@
 import { Dispatch, useReducer } from "react";
 import { TACTION, TEventItemState } from "../../../interface/event";
-import { initalEventState } from "./contexts/EventPageContext";
-import reducer from "./reducers";
+import { initalEventState } from "./context/EventPageContext";
+import reducer from "./reducer";
 
 export const useEventPageContextValue = (
   values: TEventItemState = initalEventState

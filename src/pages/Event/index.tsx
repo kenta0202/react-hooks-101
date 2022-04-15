@@ -1,7 +1,7 @@
 import EventForm from "./EventForm";
 import EventList from "./EventList";
 import { useEventPageContextValue } from "./hooks";
-import EventPageContext from "./hooks/contexts/EventPageContext";
+import EventPageContext from "./hooks/context/EventPageContext";
 
 const App = () => {
   // Pagesコンポーネント(状態を受け取る)

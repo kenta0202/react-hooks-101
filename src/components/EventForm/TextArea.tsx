@@ -5,7 +5,7 @@ type TTextArea = {
   body: string;
 };
 
-// 広域ドメインコンポーネント
+// 要素コンポーネント
 
 const TextArea: React.VFC<TTextArea> = ({ body, handleOnChangeBody }) => {
   return (

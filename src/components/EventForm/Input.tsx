@@ -5,6 +5,8 @@ type TInput = {
   title: string;
 };
 
+// 要素コンポーネント
+
 const Input: React.VFC<TInput> = ({ title, handleOnChangeTitle }) => {
   return (
     <input

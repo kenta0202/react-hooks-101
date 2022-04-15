@@ -6,7 +6,7 @@ type ButtonProps = {
   disabled?: boolean;
 };
 
-const index: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   onClick,
   className,
   children,
@@ -19,4 +19,4 @@ const index: React.FC<ButtonProps> = ({
   );
 };
 
-export default index;
+export default Button;

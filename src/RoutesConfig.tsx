@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import App from "./pages/Event";
 import { NotFound } from "./pages/NotFound";
 
@@ -8,6 +8,7 @@ const RoutesConfig: React.VFC = () => (
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="*" element={() => <Navigate to="/" />} />
     </Routes>
   </BrowserRouter>
 );

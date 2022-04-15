@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { TEventItem } from "../../../../interface/event";
-import EventPageContext from "../../hooks/contexts/EventPageContext";
+import { TEventItem } from "../../../interface/event";
+import EventPageContext from "../hooks/contexts/EventPageContext";
 
 export const useEvent = (id: TEventItem["id"], uid: TEventItem["uid"]) => {
   const { dispatch } = useContext(EventPageContext);

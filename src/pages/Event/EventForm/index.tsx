@@ -1,58 +1,45 @@
-import { useContext } from "react";
-import Button from "../../../components/Button";
-import Input from "../../../components/EventForm/Input";
-import TextArea from "../../../components/EventForm/TextArea";
+import { useContext, useState } from "react";
+import EventFormComponent from "../../../components/EventForm";
 import EventPageContext from "../hooks/contexts/EventPageContext";
 
 import { useEventForm } from "./hooks";
 
-// 局所的ドメインコンポーネント
-/*
-pagesに依存する
-ローカルの状態を持つ
-*/
+// Containerコンポーネント
 
 const EventForm: React.VFC = () => {
   const { state } = useContext(EventPageContext);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const unCreatable = title === "" || body === "";
 
-  const {
-    unCreatable,
-    deleteAllEvents,
-    addEvent,
+  const handleOnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const handleOnChangeBody = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setBody(e.target.value);
+  };
+
+  // Q: 全部ぶっこんでいて... でもuseStateを切り出すとカスタムフックの引数にstate変数とstate関数が入るのも変
+  const { deleteAllEvents, addEvent } = useEventForm(
     title,
+    setTitle,
     body,
-    handleOnChangeTitle,
-    handleOnChangeBody,
-  } = useEventForm();
+    setBody
+  );
   return (
     <>
-      <h4>イベント作成フォーム</h4>
-      <form action="">
-        <div className="form-group">
-          <label htmlFor="formEventTitle" className="">
-            タイトル
-          </label>
-          <Input title={title} handleOnChangeTitle={handleOnChangeTitle} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="formEventBody" className="">
-            ボディー
-          </label>
-          <TextArea body={body} handleOnChangeBody={handleOnChangeBody} />
-        </div>
-        <Button
-          className="btn btn-primary"
-          onClick={addEvent}
-          children="イベントを作成する"
-          disabled={unCreatable}
-        />
-        <Button
-          className="btn btn-danger"
-          onClick={deleteAllEvents}
-          children="すべてのイベントを削除する"
-          disabled={state.length === 0}
-        />
-      </form>
+      {/* Q: 見た目のコンポ―ネントとして切り出した方がいいのか */}
+      <EventFormComponent
+        unCreatable={unCreatable}
+        deleteAllEvents={deleteAllEvents}
+        addEvent={addEvent}
+        title={title}
+        body={body}
+        handleOnChangeTitle={handleOnChangeTitle}
+        handleOnChangeBody={handleOnChangeBody}
+        stateLength={state.length}
+      />
     </>
   );
 };

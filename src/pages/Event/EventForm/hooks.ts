@@ -12,7 +12,7 @@ export const useEventForm = (
 
   const addEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch({ type: "CREATE_EVENT", title, body, uid: UID(8) });
+    dispatch({ type: "event/create", title, body, uid: UID(8) });
     setTitle("");
     setBody("");
   };
@@ -22,7 +22,7 @@ export const useEventForm = (
     const result = window.confirm(
       "すべてのイベントを本当に削除しても良いですか？"
     );
-    result && dispatch({ type: "DELETE_ALL_EVENTS" });
+    result && dispatch({ type: "event/delete_all" });
   };
 
   return {

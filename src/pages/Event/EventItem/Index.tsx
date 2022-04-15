@@ -16,6 +16,7 @@ const EventItem: React.VFC<{
       title={event.title}
       body={event.body}
       id={event.id}
+      uid={event.uid.toString()}
     />
   );
 };

@@ -1,6 +1,6 @@
 /*
 action ={
-  type:"CREATE_EVENT",
+  type:"event/create",
   title:"2020東京オリンピックのお知らせ"
   body:"2020東京でオリンピックを開催します。つきましては、、"
 }
@@ -37,14 +37,14 @@ import { initalEventState } from "../contexts/EventPageContext";
 
 const reducer = (state = initalEventState as TEventItem[], action: TACTION) => {
   switch (action.type) {
-    case "CREATE_EVENT":
+    case "event/create":
       const event = { title: action.title!, body: action.body! };
       const length = state.length;
       const id = length === 0 ? 1 : state[length - 1]!.id + 1;
       return [...state, { id, uid: uid(8), ...event }];
-    case "DELETE_EVENT":
+    case "event/delete":
       return state.filter((event) => event.uid !== action.uid);
-    case "DELETE_ALL_EVENTS":
+    case "event/delete_all":
       return [];
     default:
       const typecheck: never = action;

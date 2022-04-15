@@ -8,6 +8,6 @@ export type TEventItem = {
 export type TEventItemState = TEventItem[];
 
 export type TACTION =
-  | { type: "DELETE_EVENT"; uid?: string }
-  | { type: "DELETE_ALL_EVENTS" }
-  | { type: "CREATE_EVENT"; title: string; body: string; uid: string };
+  | { type: "event/delete"; uid: string }
+  | { type: "event/delete_all" }
+  | { type: "event/create"; title: string; body: string; uid: string };

@@ -5,10 +5,14 @@ const EventItemComponent: React.VFC<{
   title: string;
   body: string;
   id: number;
+  uid: string;
   handleOnClickDeleteButton: () => void;
-}> = ({ title, body, id, handleOnClickDeleteButton }) => {
+}> = ({ title, body, id, uid, handleOnClickDeleteButton }) => {
   return (
-    <tr>
+    // Q:
+    // react_devtools_backend.js:3973 Warning: Each child in a list should have a unique "key" prop.
+
+    <tr key={uid}>
       <td>{id}</td>
       <td>{title}</td>
       <td>{body}</td>

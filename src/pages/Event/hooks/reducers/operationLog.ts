@@ -1,4 +1,3 @@
-import { initalState } from "../..";
 import {
   OperationLogCategory,
   TOperationLogAction,
@@ -8,7 +7,6 @@ import {
 
 export const operationLogReducer = (
   state = [] as TOperationLogState,
-  // state = initalState.operationLogs as TOperationLogState,
   action: TOperationLogAction
 ) => {
   switch (action.type) {

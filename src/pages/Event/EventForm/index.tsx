@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import EventFormComponent from "../../../components/EventForm";
-import EventPageContext from "../hooks/contexts/EventPageContext";
+import EventContext from "../hooks/contexts/EventPageContext";
 
 import { useEventForm } from "./hooks";
 
 // Containerコンポーネント
 
 const EventForm: React.VFC = () => {
-  const { state } = useContext(EventPageContext);
+  const { eventState } = useContext(EventContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const unCreatable = title === "" || body === "";
@@ -38,7 +38,7 @@ const EventForm: React.VFC = () => {
         body={body}
         handleOnChangeTitle={handleOnChangeTitle}
         handleOnChangeBody={handleOnChangeBody}
-        stateLength={state.length}
+        stateLength={eventState.length}
       />
     </>
   );

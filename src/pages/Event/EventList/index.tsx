@@ -5,8 +5,8 @@ import EventListComponent from "../../../components/EventList";
 // Containerコンポーネント
 
 const EventList: React.VFC = () => {
-  const { state } = useContext(EventPageContext);
-  return <EventListComponent state={state} />;
+  const { eventState } = useContext(EventPageContext);
+  return <EventListComponent state={eventState} />;
 };
 
 export default EventList;

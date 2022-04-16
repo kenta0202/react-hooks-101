@@ -1,25 +1,31 @@
-import { TRootState } from "../../interface";
+import { useReducer } from "react";
 import EventForm from "./EventForm";
 import EventList from "./EventList";
-import { useEventPageContextValue } from "./hooks";
-import EventPageContext from "./hooks/contexts/EventPageContext";
-
-export const initalState: TRootState = {
-  events: [],
-  operationLogs: [],
-};
+import EventContext from "./hooks/contexts/EventPageContext";
+import OperationLogContext from "./hooks/contexts/OperationLogContext";
+import { eventReducer } from "./hooks/reducers/event";
+import { operationLogReducer } from "./hooks/reducers/operationLog";
 
 const App = () => {
   // Pagesコンポーネント(状態を受け取る)
-  const contextValues = useEventPageContextValue(initalState.events);
-  // contextValuesはstateとdispatch
+  const [eventState, eventDispatch] = useReducer(eventReducer, []);
+  const [operationLogState, operationLogDispatch] = useReducer(
+    operationLogReducer,
+    []
+  );
+  console.log(eventState);
+  console.log(operationLogState);
   return (
-    <EventPageContext.Provider value={contextValues}>
-      <div className="container-fluid">
-        <EventForm />
-        <EventList />
-      </div>
-    </EventPageContext.Provider>
+    <EventContext.Provider value={{ eventState, eventDispatch }}>
+      <OperationLogContext.Provider
+        value={{ operationLogState, operationLogDispatch }}
+      >
+        <div className="container-fluid">
+          <EventForm />
+          <EventList />
+        </div>
+      </OperationLogContext.Provider>
+    </EventContext.Provider>
   );
 };
 

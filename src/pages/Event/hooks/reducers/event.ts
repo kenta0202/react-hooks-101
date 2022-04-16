@@ -32,7 +32,6 @@ body:"2020東京でオリンピックを開催します。つきましては、�
 
 */
 import { uid } from "uid";
-import { initalState } from "../..";
 import {
   TEventAction,
   EventCategory,

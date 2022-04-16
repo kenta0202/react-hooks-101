@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import EventPageContext from "../hooks/contexts/EventPageContext";
 import { uid as UID } from "uid";
 import { create, delete_all } from "../hooks/actions/eventAction";
 import {
@@ -7,6 +6,8 @@ import {
   delete_allOperationLog,
 } from "../hooks/actions/oparationLog";
 import { timeCurrentIso8601 } from "../../../utils/getCurrentTime";
+import EventContext from "../hooks/contexts/EventPageContext";
+import OperationLogContext from "../hooks/contexts/OperationLogContext";
 
 export const useEventForm = (
   title: string,
@@ -14,13 +15,16 @@ export const useEventForm = (
   body: string,
   setBody: React.Dispatch<React.SetStateAction<string>>
 ) => {
-  const { dispatch } = useContext(EventPageContext);
+  const { eventDispatch } = useContext(EventContext);
+  const { operationLogDispatch } = useContext(OperationLogContext);
 
   const addEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch(create(title, body, UID(8)));
+    eventDispatch(create(title, body, UID(8)));
 
-    // dispatch(createOperationLog("イベントを作成しました。",timeCurrentIso8601()))
+    operationLogDispatch(
+      createOperationLog("イベントを作成しました。", timeCurrentIso8601())
+    );
     setTitle("");
     setBody("");
   };
@@ -31,8 +35,8 @@ export const useEventForm = (
       "すべてのイベントを本当に削除しても良いですか？"
     );
     if (result) {
-      dispatch(delete_all());
-      // dispatch(createOperationLog("すべてのイベントを削除しました。",timeCurrentIso8601()))
+      eventDispatch(delete_all());
+      operationLogDispatch(delete_allOperationLog());
     }
   };
 

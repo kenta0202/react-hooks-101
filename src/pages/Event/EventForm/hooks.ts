@@ -40,8 +40,19 @@ export const useEventForm = (
     }
   };
 
+  const deleteAllOperationLogs = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const result = window.confirm(
+      "全ての操作ログを本当に削除してもいいですか?"
+    );
+    if (result) {
+      operationLogDispatch(delete_allOperationLog());
+    }
+  };
+
   return {
     addEvent,
     deleteAllEvents,
+    deleteAllOperationLogs,
   };
 };

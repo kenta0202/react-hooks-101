@@ -13,8 +13,8 @@ const App = () => {
     operationLogReducer,
     []
   );
-  console.log(eventState);
-  console.log(operationLogState);
+  console.log(eventState, "event");
+  console.log(operationLogState, "operationLog");
   return (
     <EventContext.Provider value={{ eventState, eventDispatch }}>
       <OperationLogContext.Provider

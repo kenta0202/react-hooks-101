@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import EventFormComponent from "../../../components/EventForm";
 import EventContext from "../hooks/contexts/EventPageContext";
+import OperationLogContext from "../hooks/contexts/OperationLogContext";
 
 import { useEventForm } from "./hooks";
 
@@ -8,6 +9,7 @@ import { useEventForm } from "./hooks";
 
 const EventForm: React.VFC = () => {
   const { eventState } = useContext(EventContext);
+  const { operationLogState } = useContext(OperationLogContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const unCreatable = title === "" || body === "";
@@ -21,7 +23,7 @@ const EventForm: React.VFC = () => {
   };
 
   // Q: 全部ぶっこんでいて... でもuseStateを切り出すとカスタムフックの引数にstate変数とstate関数が入るのも変
-  const { deleteAllEvents, addEvent } = useEventForm(
+  const { deleteAllEvents, addEvent, deleteAllOperationLogs } = useEventForm(
     title,
     setTitle,
     body,
@@ -34,11 +36,13 @@ const EventForm: React.VFC = () => {
         unCreatable={unCreatable}
         deleteAllEvents={deleteAllEvents}
         addEvent={addEvent}
+        deleteAllOperationLogs={deleteAllOperationLogs}
         title={title}
         body={body}
         handleOnChangeTitle={handleOnChangeTitle}
         handleOnChangeBody={handleOnChangeBody}
-        stateLength={eventState.length}
+        eventStateLength={eventState.length}
+        operationLogStateLength={operationLogState.length}
       />
     </>
   );

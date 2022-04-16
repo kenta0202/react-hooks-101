@@ -12,6 +12,9 @@ const EventFormComponent: React.VFC<any> = ({
   handleOnChangeTitle,
   handleOnChangeBody,
   stateLength,
+  deleteAllOperationLogs,
+  eventStateLength,
+  operationLogStateLength,
 }) => {
   return (
     <>
@@ -39,7 +42,13 @@ const EventFormComponent: React.VFC<any> = ({
           className="btn btn-danger"
           onClick={deleteAllEvents}
           children="すべてのイベントを削除する"
-          disabled={stateLength === 0}
+          disabled={eventStateLength === 0}
+        />
+        <Button
+          className="btn btn-danger"
+          onClick={deleteAllOperationLogs}
+          children="すべての操作ログを削除する"
+          disabled={operationLogStateLength === 0}
         />
       </form>
     </>

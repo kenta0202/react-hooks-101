@@ -3,7 +3,7 @@ import {
   TOperationLogAction,
   TOperationLogItem,
   TOperationLogState,
-} from "../../../../interface/operationLog";
+} from "../interface/operationLog";
 
 export const operationLogReducer = (
   state = [] as TOperationLogState,

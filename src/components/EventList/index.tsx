@@ -1,5 +1,5 @@
 import React from "react";
-import { TEventState } from "../../interface/event";
+import { TEventState } from "../../pages/Event/features/interface/event";
 import EventItem from "../../pages/Event/EventItem/Index";
 const EventListComponent: React.VFC<{ state: TEventState }> = ({ state }) => {
   return (

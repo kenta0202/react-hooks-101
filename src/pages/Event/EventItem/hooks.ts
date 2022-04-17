@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TEventItem } from "../../../interface/event";
+import { TEventItem } from "../features/interface/event";
 import { delete_one } from "../features/actions/eventAction";
 import EventPageContext from "../features/contexts/EventPageContext";
 

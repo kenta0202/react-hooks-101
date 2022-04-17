@@ -33,14 +33,24 @@ const EventForm: React.VFC = () => {
     <>
       {/* Q: 見た目のコンポ―ネントとして切り出した方がいいのか */}
       <EventFormComponent
-        unCreatable={unCreatable}
+        {...{
+          unCreatable,
+          deleteAllEvents,
+          addEvent,
+          deleteAllOperationLogs,
+          title,
+          body,
+          handleOnChangeTitle,
+          handleOnChangeBody,
+        }}
+        /*     unCreatable={unCreatable}
         deleteAllEvents={deleteAllEvents}
         addEvent={addEvent}
         deleteAllOperationLogs={deleteAllOperationLogs}
         title={title}
         body={body}
         handleOnChangeTitle={handleOnChangeTitle}
-        handleOnChangeBody={handleOnChangeBody}
+        handleOnChangeBody={handleOnChangeBody} */
         eventStateLength={eventState.length}
         operationLogStateLength={operationLogState.length}
       />

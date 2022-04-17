@@ -1,6 +1,6 @@
 //   ActionCreator
 
-import { TOperationLogAction } from "../../../../interface/operationLog";
+import { TOperationLogAction } from "../interface/operationLog";
 
 export const createOperationLog = (
   description: string,

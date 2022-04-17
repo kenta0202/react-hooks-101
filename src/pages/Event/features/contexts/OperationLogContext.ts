@@ -2,7 +2,7 @@ import { createContext } from "react";
 import {
   TOperationLogAction,
   TOperationLogState,
-} from "../../../../interface/operationLog";
+} from "../interface/operationLog";
 
 const OperationLogContext = createContext<{
   operationLogState: TOperationLogState;

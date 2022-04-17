@@ -1,6 +1,6 @@
 import React from "react";
 import EventItemComponent from "../../../components/EventList/EventItem";
-import { TEventItem } from "../../../interface/event";
+import { TEventItem } from "../features/interface/event";
 import { useEvent } from "./hooks";
 
 // Containerコンポーネント:振る舞いを定義

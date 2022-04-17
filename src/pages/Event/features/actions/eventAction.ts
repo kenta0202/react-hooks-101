@@ -1,6 +1,6 @@
 //   ActionCreator
 
-import { TEventAction } from "../../../../interface/event";
+import { TEventAction } from "../interface/event";
 
 export const create = (
   title: string,

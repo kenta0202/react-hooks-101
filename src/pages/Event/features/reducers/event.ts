@@ -32,11 +32,7 @@ body:"2020東京でオリンピックを開催します。つきましては、�
 
 */
 import { uid } from "uid";
-import {
-  TEventAction,
-  EventCategory,
-  TEventState,
-} from "../../../../interface/event";
+import { TEventAction, EventCategory, TEventState } from "../interface/event";
 
 export const eventReducer = (
   state = [] as TEventState,

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import EventFormComponent from "../../../components/EventForm";
-import EventContext from "../hooks/contexts/EventPageContext";
-import OperationLogContext from "../hooks/contexts/OperationLogContext";
+import EventContext from "../features/contexts/EventPageContext";
+import OperationLogContext from "../features/contexts/OperationLogContext";
 
 import { useEventForm } from "./hooks";
 

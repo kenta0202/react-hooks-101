@@ -1,10 +1,10 @@
 import { useReducer } from "react";
 import EventForm from "./EventForm";
 import EventList from "./EventList";
-import EventContext from "./hooks/contexts/EventPageContext";
-import OperationLogContext from "./hooks/contexts/OperationLogContext";
-import { eventReducer } from "./hooks/reducers/event";
-import { operationLogReducer } from "./hooks/reducers/operationLog";
+import EventContext from "./features/contexts/EventPageContext";
+import OperationLogContext from "./features/contexts/OperationLogContext";
+import { eventReducer } from "./features/reducers/event";
+import { operationLogReducer } from "./features/reducers/operationLog";
 
 const App = () => {
   // Pagesコンポーネント(状態を受け取る)

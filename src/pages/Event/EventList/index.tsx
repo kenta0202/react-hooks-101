@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import EventPageContext from "../hooks/contexts/EventPageContext";
+import EventPageContext from "../features/contexts/EventPageContext";
 import EventListComponent from "../../../components/EventList";
 
 // Containerコンポーネント

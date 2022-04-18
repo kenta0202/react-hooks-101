@@ -24,13 +24,13 @@ const EventFormComponent: React.VFC<any> = ({
           <label htmlFor="formEventTitle" className="">
             タイトル
           </label>
-          <Input title={title} handleOnChangeTitle={handleOnChangeTitle} />
+          <Input {...{ title, handleOnChangeTitle }} />
         </div>
         <div className="form-group">
           <label htmlFor="formEventBody" className="">
             ボディー
           </label>
-          <TextArea body={body} handleOnChangeBody={handleOnChangeBody} />
+          <TextArea {...{ body, handleOnChangeBody }} />
         </div>
         <Button
           className="btn btn-primary"

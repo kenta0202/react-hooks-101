@@ -43,14 +43,6 @@ const EventForm: React.VFC = () => {
           handleOnChangeTitle,
           handleOnChangeBody,
         }}
-        /*     unCreatable={unCreatable}
-        deleteAllEvents={deleteAllEvents}
-        addEvent={addEvent}
-        deleteAllOperationLogs={deleteAllOperationLogs}
-        title={title}
-        body={body}
-        handleOnChangeTitle={handleOnChangeTitle}
-        handleOnChangeBody={handleOnChangeBody} */
         eventStateLength={eventState.length}
         operationLogStateLength={operationLogState.length}
       />

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import EventFormComponent from "../../../components/EventForm";
 import EventContext from "../features/contexts/EventPageContext";
 import OperationLogContext from "../features/contexts/OperationLogContext";
@@ -8,6 +8,7 @@ import { useEventForm } from "./hooks";
 // Containerコンポーネント
 
 const EventForm: React.VFC = () => {
+  // const appState = localStorage.getItem("appWithRedux");
   const { eventState } = useContext(EventContext);
   const { operationLogState } = useContext(OperationLogContext);
   const [title, setTitle] = useState("");
@@ -29,6 +30,11 @@ const EventForm: React.VFC = () => {
     body,
     setBody
   );
+
+  // useEffect(() => {
+  //   localStorage.setItem("appWithRedux", JSON.stringify(eventState));
+  // }, [eventState]);
+
   return (
     <>
       {/* Q: 見た目のコンポ―ネントとして切り出した方がいいのか */}

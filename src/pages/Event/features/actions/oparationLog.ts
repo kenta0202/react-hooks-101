@@ -10,14 +10,6 @@ export const createOperationLog = (
   payload: { description, operatedAt },
 });
 
-export const deleteOperationLog = (
-  description: string,
-  operatedAt: string
-): TOperationLogAction => ({
-  type: "operationLog/delete",
-  payload: { description, operatedAt },
-});
-
 export const delete_allOperationLog = (): TOperationLogAction => ({
   type: "operationLog/deleteAll",
 });

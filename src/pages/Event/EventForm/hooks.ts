@@ -36,7 +36,12 @@ export const useEventForm = (
     );
     if (result) {
       eventDispatch(delete_all());
-      operationLogDispatch(delete_allOperationLog());
+      operationLogDispatch(
+        createOperationLog(
+          `全てのイベントを削除しました。`,
+          timeCurrentIso8601()
+        )
+      );
     }
   };
 

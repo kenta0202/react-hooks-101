@@ -15,8 +15,8 @@ const EventListComponent: React.VFC<{ state: TEventState }> = ({ state }) => {
           </tr>
         </thead>
         <tbody>
-          {state.map((event) => (
-            <EventItem event={event} />
+          {state.map((event, index) => (
+            <EventItem event={event} key={index} />
           ))}
         </tbody>
       </table>

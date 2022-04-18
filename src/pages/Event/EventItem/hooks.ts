@@ -3,7 +3,7 @@ import { TEventItem } from "../features/interface/event";
 import { delete_one } from "../features/actions/eventAction";
 import EventPageContext from "../features/contexts/EventPageContext";
 import OperationLogContext from "../features/contexts/OperationLogContext";
-import { deleteOperationLog } from "../features/actions/oparationLog";
+import { createOperationLog } from "../features/actions/oparationLog";
 import { timeCurrentIso8601 } from "../../../utils/getCurrentTime";
 
 export const useEvent = (id: TEventItem["id"], uid: TEventItem["uid"]) => {
@@ -16,7 +16,7 @@ export const useEvent = (id: TEventItem["id"], uid: TEventItem["uid"]) => {
     if (result) {
       eventDispatch(delete_one(uid));
       operationLogDispatch(
-        deleteOperationLog(
+        createOperationLog(
           `イベント(ID=${id})を削除しました。`,
           timeCurrentIso8601()
         )

@@ -5,6 +5,7 @@ import EventContext from "./features/contexts/EventPageContext";
 import OperationLogContext from "./features/contexts/OperationLogContext";
 import { eventReducer } from "./features/reducers/event";
 import { operationLogReducer } from "./features/reducers/operationLog";
+import OperationLogs from "./OperationLogs";
 
 const App = () => {
   // Pagesコンポーネント(状態を受け取る)
@@ -23,6 +24,7 @@ const App = () => {
         <div className="container-fluid">
           <EventForm />
           <EventList />
+          <OperationLogs />
         </div>
       </OperationLogContext.Provider>
     </EventContext.Provider>

@@ -9,8 +9,9 @@ import { eventReducer } from "./features/reducers/event";
 import { operationLogReducer } from "./features/reducers/operationLog";
 import OperationLogs from "./OperationLogs";
 
+// const APP_KEY = "appWithRedux"
 const App = () => {
-  // const appState = localStorage.getItem("appWithRedux");
+  // const appState = localStorage.getItem(APP_KEY);
 
   const initialEventState: TEventState =
     /* appState?JSON.parse(appState): */ [];
@@ -29,7 +30,7 @@ const App = () => {
   console.log(operationLogState, "operationLog");
 
   // useEffect(() => {
-  //   localStorage.setItem("appWithRedux", JSON.stringify(eventState));
+  //   localStorage.setItem(APP_KEY, JSON.stringify(eventState));
   // }, [eventState]);
 
   return (

@@ -8,7 +8,7 @@ import { useEventForm } from "./hooks";
 // Containerコンポーネント
 
 const EventForm: React.VFC = () => {
-  // const appState = localStorage.getItem("appWithRedux");
+  
   const { eventState } = useContext(EventContext);
   const { operationLogState } = useContext(OperationLogContext);
   const [title, setTitle] = useState("");
@@ -31,9 +31,6 @@ const EventForm: React.VFC = () => {
     setBody
   );
 
-  // useEffect(() => {
-  //   localStorage.setItem("appWithRedux", JSON.stringify(eventState));
-  // }, [eventState]);
 
   return (
     <>

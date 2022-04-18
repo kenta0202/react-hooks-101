@@ -12,10 +12,16 @@ export const operationLogReducer = (
   switch (action.type) {
     case OperationLogCategory.add:
       const operationLogs: TOperationLogItem = {
-        description: action.payload.description!,
-        operatedAt: action.payload.operatedAt!,
+        description: action.payload.description,
+        operatedAt: action.payload.operatedAt,
       };
       return [operationLogs, ...state];
+    case OperationLogCategory.delete:
+      const operationLogs_delete: TOperationLogItem = {
+        description: action.payload.description,
+        operatedAt: action.payload.operatedAt,
+      };
+      return [operationLogs_delete, ...state];
     case OperationLogCategory.deleteAll:
       return [];
     default:
